@@ -617,6 +617,10 @@ background-layer {
     opacity: 0;
     transform: translateY(40px);
     transition: 0.4s ease;
+    .page {
+    position: relative;
+    z-index: 1;
+}
 }
 
 .page.active {
@@ -768,12 +772,16 @@ background-layer {
 .project-modal {
     position: fixed;
     inset: 0;
-    z-index: 10000;
-    background: rgba(0, 0, 0, 0.85);
-    display: none; /* Toggle with JS */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    background: rgba(0,0,0,0.6);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
 }
 
 .project-box {
@@ -1018,9 +1026,8 @@ background-layer {
 }
 
 .project-modal.active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
 }
 
 @media (max-width: 768px) {
@@ -1183,3 +1190,22 @@ section{
     -webkit-overflow-scrolling: touch;
 }
 
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.image {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+    
+.hamburg {
+    position: relative;
+    z-index: 2000;
+}
