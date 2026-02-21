@@ -1,12 +1,3 @@
-function hamburg(){
-    const dropdown = document.querySelector(".dropdown");
-    dropdown.style.display = "flex";
-}
-
-function cancel(){
-    const dropdown = document.querySelector(".dropdown");
-    dropdown.style.display = "none";
-}
 
 
 const texts = [
@@ -23,29 +14,16 @@ const textElements = document.querySelector('.typewriter-text');
 let textIndex = 0;  
 let characterIndex = 0;
 
-function startTypewriter() {
-    if (textElements) typeWriter();
+function typeWriter(){
+    if(characterIndex < texts[textIndex].length){
+        textElements.innerHTML += texts[textIndex].charAt(characterIndex);
+        characterIndex++;
+        setTimeout(typeWriter, speed);
+    }
+    else{
+        setTimeout(eraseText, 1000);
+    }
 }
-
-// Update your intro-screen logic to trigger the typewriter
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        const intro = document.getElementById("introScreen");
-        const main = document.getElementById("mainSite");
-
-        intro.classList.add("intro-hide");
-
-        setTimeout(() => {
-            main.classList.add("main-show");
-            // START TYPEWRITER HERE
-            startTypewriter();
-        }, 400);
-
-        setTimeout(() => {
-            intro.style.display = "none";
-        }, 1400);
-    }, 1500);
-});
 
 function eraseText(){
     if(textElements.innerHTML.length > 0){
@@ -83,29 +61,40 @@ function closeCV(){
 
 
 
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
+    const intro = document.getElementById('introScreen');
+    const main = document.getElementById('mainSite');
+
+    // Make sure main site is ready but hidden
+    main.style.display = 'block';
+    main.style.opacity = '0';
 
     setTimeout(() => {
+        // Fade out intro
+        intro.style.transition = 'opacity 0.6s ease';
+        intro.style.opacity = '0';
+        
+        // Fade in main site
+        main.style.transition = 'opacity 0.8s ease';
+        main.style.opacity = '1';
 
-        const intro = document.getElementById("introScreen");
-        const main = document.getElementById("mainSite");
-
-        // Start intro exit
-        intro.classList.add("intro-hide");
-
-        // Start main reveal slightly after
         setTimeout(() => {
-            main.classList.add("main-show");
-        }, 400);
-
-        // Remove intro completely
-        setTimeout(() => {
-            intro.style.display = "none";
-        }, 1400);
-
-    }, 1500);
-
+            intro.remove(); // DELETE the intro screen entirely to free up memory
+            
+            // Start the typewriter ONLY after intro is gone
+            if (typeof typeWriter === "function") {
+                typeWriter();
+            }
+        }, 600);
+    }, 2000);
 });
+
+// IMPORTANT: Delete the old "window.onload = typeWriter;" line at the bottom!
+// IMPORTANT: Remove the old "window.onload = typeWriter" line 
+// from the middle of your script.js file!
+
+// Remove this line from the bottom of your script.js:
+// window.onload = typeWriter;
 
 const glow = document.querySelector(".cursor-glow");
 
@@ -114,25 +103,11 @@ document.addEventListener("mousemove", e => {
     glow.style.top = e.clientY + "px";
 });
 
-function showPage(pageId){
-
-    // 🔹 Close mobile menu first
-    const dropdown = document.querySelector(".dropdown");
-    dropdown.style.display = "none";
-
-    // 🔹 Remove active from all pages
-    document.querySelectorAll(".page").forEach(p=>{
+function showPage(pageId) {
+    document.querySelectorAll(".page").forEach(p => {
         p.classList.remove("active");
     });
-
-    // 🔹 Show selected page
     document.getElementById(pageId).classList.add("active");
-
-    // 🔹 Scroll to top (important for phone)
-    window.scrollTo(0,0);
-
-    
-
 }
 
 
@@ -204,18 +179,48 @@ window.onload = function() {
     });
 
 };
-
-function navigateMobile(page) {
-    showPage(page);
-    closeMenu();
-}
-function closeMenu() {
-    document.querySelector(".dropdown").classList.remove("active");
+function toggleMenu() {
+    mobileMenu.classList.toggle("active");
 }
 
-const hamburg = document.querySelector('.hamburg');
-const cancel = document.querySelector('.cancel');
-const dropdown = document.querySelector('.dropdown');
+function navigateMobile(pageId) {
+    // 1. Hide the menu
+    mobileMenu.classList.remove("active");
+    
+    // 2. Show the page (using your existing function)
+    showPage(pageId);
+    
+    // 3. Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function closeMenu(){
+    dropdownMenu.classList.remove("active");
+}
+
+const menuBtn = document.querySelector('.hamburg');
+const cancelBtn = document.querySelector('.cancel');
+const dropdownMenu = document.querySelector('.dropdown');
+
+menuBtn.addEventListener('click', () => {
+    dropdownMenu.classList.add('active');
+    menuBtn.style.display = 'none';
+    cancelBtn.style.display = 'block';
+});
+
+cancelBtn.addEventListener('click', () => {
+    dropdownMenu.classList.remove('active');
+    cancelBtn.style.display = 'none';
+    menuBtn.style.display = 'block';
+});
+
+// Auto close when link tapped (important for phone)
+document.querySelectorAll('.dropdown .links a').forEach(link => {
+    link.addEventListener('click', () => {
+        dropdownMenu.classList.remove('active');
+        cancelBtn.style.display = 'none';
+        menuBtn.style.display = 'block';
+    });
+});
 
 hamburg.addEventListener('click', () => {
     dropdown.classList.add('open');
@@ -238,35 +243,9 @@ document.querySelectorAll('.dropdown .links a').forEach(link => {
     });
 });
 
-const hamburgIcon = document.querySelector('.hamburg');
-const cancelIcon = document.querySelector('.cancel');
-const dropdownMenu = document.querySelector('.dropdown');
 
-// Single function to handle menu toggle
-function toggleMenu(isOpen) {
-    if (isOpen) {
-        dropdownMenu.classList.add('open');
-        hamburgIcon.style.display = 'none';
-        cancelIcon.style.display = 'block';
-        // Force display flex in case CSS is hidden
-        dropdownMenu.style.display = "flex"; 
-    } else {
-        dropdownMenu.classList.remove('open');
-        hamburgIcon.style.display = 'block';
-        cancelIcon.style.display = 'none';
-        // Smoothly hide after transition
-        setTimeout(() => {
-            if(!dropdownMenu.classList.contains('open')) {
-                dropdownMenu.style.display = "none";
-            }
-        }, 400);
-    }
+function toggleMenu() {
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.classList.toggle('active');
 }
 
-hamburgIcon.addEventListener('click', () => toggleMenu(true));
-cancelIcon.addEventListener('click', () => toggleMenu(false));
-
-// Close menu when clicking links or buttons inside
-document.querySelectorAll('.dropdown .links a, .dropdown .links button').forEach(link => {
-    link.addEventListener('click', () => toggleMenu(false));
-});
