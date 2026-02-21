@@ -1153,3 +1153,11 @@ html, body {
 section{
     min-height: 100vh;
 }
+
+.tech-waves,
+.scan-lines,
+.light-sweep,
+.meteor-field {
+    pointer-events: none;
+}
+
