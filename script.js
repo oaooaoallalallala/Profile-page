@@ -1,12 +1,13 @@
 function hamburg(){
-    const navbar = document.querySelector('.dropdown');
-    navbar.style.transform = 'translateY(0px)';
+    const dropdown = document.querySelector(".dropdown");
+    dropdown.style.display = "flex";
 }
 
 function cancel(){
-    const navbar = document.querySelector('.dropdown');
-    navbar.style.transform = 'translateY(-500px)';
+    const dropdown = document.querySelector(".dropdown");
+    dropdown.style.display = "none";
 }
+
 
 const texts = [
     "DEVELOPER",
@@ -102,13 +103,20 @@ document.addEventListener("mousemove", e => {
 
 function showPage(pageId){
 
-    const pages = document.querySelectorAll('.page');
+    // 🔹 Close mobile menu first
+    const dropdown = document.querySelector(".dropdown");
+    dropdown.style.display = "none";
 
-    pages.forEach(page => {
-        page.classList.remove('active');
+    // 🔹 Remove active from all pages
+    document.querySelectorAll(".page").forEach(p=>{
+        p.classList.remove("active");
     });
 
-    document.getElementById(pageId).classList.add('active');
+    // 🔹 Show selected page
+    document.getElementById(pageId).classList.add("active");
+
+    // 🔹 Scroll to top (important for phone)
+    window.scrollTo(0,0);
 }
 
 
