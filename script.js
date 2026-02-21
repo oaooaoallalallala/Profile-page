@@ -1,6 +1,6 @@
-function hamburg(){
+function hamburg() {
     const dropdown = document.querySelector(".dropdown");
-    dropdown.style.display = "flex";
+    dropdown.classList.toggle("open");
 }
 
 function cancel(){
@@ -224,4 +224,3 @@ document.querySelectorAll('.dropdown .links a').forEach(link => {
         hamburg.style.display = 'block';
     });
 });
-
