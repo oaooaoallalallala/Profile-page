@@ -23,16 +23,29 @@ const textElements = document.querySelector('.typewriter-text');
 let textIndex = 0;  
 let characterIndex = 0;
 
-function typeWriter(){
-    if(characterIndex < texts[textIndex].length){
-        textElements.innerHTML += texts[textIndex].charAt(characterIndex);
-        characterIndex++;
-        setTimeout(typeWriter, speed);
-    }
-    else{
-        setTimeout(eraseText, 1000);
-    }
+function startTypewriter() {
+    if (textElements) typeWriter();
 }
+
+// Update your intro-screen logic to trigger the typewriter
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        const intro = document.getElementById("introScreen");
+        const main = document.getElementById("mainSite");
+
+        intro.classList.add("intro-hide");
+
+        setTimeout(() => {
+            main.classList.add("main-show");
+            // START TYPEWRITER HERE
+            startTypewriter();
+        }, 400);
+
+        setTimeout(() => {
+            intro.style.display = "none";
+        }, 1400);
+    }, 1500);
+});
 
 function eraseText(){
     if(textElements.innerHTML.length > 0){
@@ -225,3 +238,35 @@ document.querySelectorAll('.dropdown .links a').forEach(link => {
     });
 });
 
+const hamburgIcon = document.querySelector('.hamburg');
+const cancelIcon = document.querySelector('.cancel');
+const dropdownMenu = document.querySelector('.dropdown');
+
+// Single function to handle menu toggle
+function toggleMenu(isOpen) {
+    if (isOpen) {
+        dropdownMenu.classList.add('open');
+        hamburgIcon.style.display = 'none';
+        cancelIcon.style.display = 'block';
+        // Force display flex in case CSS is hidden
+        dropdownMenu.style.display = "flex"; 
+    } else {
+        dropdownMenu.classList.remove('open');
+        hamburgIcon.style.display = 'block';
+        cancelIcon.style.display = 'none';
+        // Smoothly hide after transition
+        setTimeout(() => {
+            if(!dropdownMenu.classList.contains('open')) {
+                dropdownMenu.style.display = "none";
+            }
+        }, 400);
+    }
+}
+
+hamburgIcon.addEventListener('click', () => toggleMenu(true));
+cancelIcon.addEventListener('click', () => toggleMenu(false));
+
+// Close menu when clicking links or buttons inside
+document.querySelectorAll('.dropdown .links a, .dropdown .links button').forEach(link => {
+    link.addEventListener('click', () => toggleMenu(false));
+});

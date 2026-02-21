@@ -66,16 +66,20 @@ nav {
     border-bottom: 2px solid #b711e0;
 }
 
-.dropdown{
-    z-index: 100;
-    position: absolute;
+.dropdown {
+    position: fixed;
     top: 0;
-    transform: translateY(-500px);
+    left: 0;
     width: 100%;
-    height: auto;
-    backdrop-filter: blur(4px) brightness(40%);
-    box-shadow: 0 0 20px black;
-    transition: 0.3s linear;
+    height: 100vh;
+    transform: translateY(-100%); /* Moves it exactly one screen height up */
+    transition: 0.4s ease-in-out;
+    z-index: 9998;
+}
+
+/* Use a class to show it via JavaScript */
+.dropdown.active {
+    transform: translateY(0);
 }
 
 .dropdown .links a{
@@ -1194,9 +1198,7 @@ section{
 .light-sweep,
 .meteor-field,
 .glow-bg {
-    position: fixed;
-    inset: 0;
-    pointer-events: none; /* CRITICAL: allows clicks to pass through to buttons */
+    pointer-events: none; /* Allows taps to pass through to the buttons below */
     z-index: -1;
 }
 
@@ -1238,6 +1240,9 @@ section{
 
     
 .hamburg {
+    display: block;
     position: relative;
-    z-index: 2000;
+    z-index: 10000; /* Higher than everything else */
+    padding: 10px;  /* Makes it easier to tap on small screens */
+    cursor: pointer;
 }
