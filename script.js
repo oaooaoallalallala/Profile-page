@@ -188,3 +188,11 @@ window.onload = function() {
     });
 
 };
+
+function navigateMobile(page) {
+    showPage(page);
+    closeMenu();
+}
+function closeMenu() {
+    document.querySelector(".dropdown").classList.remove("active");
+}
