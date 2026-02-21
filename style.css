@@ -180,18 +180,20 @@ background-layer {
     box-shadow: 0 0 40px 5px #b711e0;
 }
 
-.main-container .image{
-    width: clamp(180px, 25vw, 600px);
-    height: clamp(180px, 60vh, 600px);
-    border-radius: 100%;
+.main-container .image {
+    width: clamp(220px, 40vw, 450px);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 0 50px #e01183;
+    border: 3px solid #b711e0;
+    box-shadow: 0 0 30px #b711e0;
+    margin: 20px auto;
 }
 
-.main-container .image{
-    width: clamp(180px, 25vw, 600px);
-    height: auto;
-    aspect-ratio: 1 / 1;
+.main-container .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 
@@ -617,6 +619,10 @@ background-layer {
     opacity: 0;
     transform: translateY(40px);
     transition: 0.4s ease;
+    .page {
+    position: relative;
+    z-index: 1;
+}
 }
 
 .page.active {
@@ -768,12 +774,16 @@ background-layer {
 .project-modal {
     position: fixed;
     inset: 0;
-    z-index: 10000;
-    background: rgba(0, 0, 0, 0.85);
-    display: none; /* Toggle with JS */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    background: rgba(0,0,0,0.6);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
 }
 
 .project-box {
@@ -1018,9 +1028,8 @@ background-layer {
 }
 
 .project-modal.active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
 }
 
 @media (max-width: 768px) {
@@ -1041,11 +1050,36 @@ background-layer {
 
 }
 
-.dropdown{
+/* Optimized Dropdown Gadget */
+.dropdown {
     position: fixed;
-    height: auto;
-    max-height: 100vh;
-    overflow-y: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Full screen height */
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 9998; /* Just below the nav icons */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Animation Logic */
+    transform: translateY(-100%); /* Start completely off-screen */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Add this class via JavaScript when clicking hamburg */
+.dropdown.open {
+    transform: translateY(0);
+}
+
+.hamburg, .cancel {
+    display: none;
+    cursor: pointer;
+    color: white;
+    z-index: 10000; /* Highest priority */
 }
 
 .links button{
@@ -1154,11 +1188,16 @@ section{
     min-height: 100vh;
 }
 
+/* Ensure backgrounds never block clicks */
 .tech-waves,
 .scan-lines,
 .light-sweep,
-.meteor-field {
-    pointer-events: none;
+.meteor-field,
+.glow-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none; /* CRITICAL: allows clicks to pass through to buttons */
+    z-index: -1;
 }
 
 @media (max-width:768px){
@@ -1183,3 +1222,22 @@ section{
     -webkit-overflow-scrolling: touch;
 }
 
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.image {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+    
+.hamburg {
+    position: relative;
+    z-index: 2000;
+}
