@@ -35,40 +35,41 @@
     <span class="meteor"></span>
 </div>
 
-    <nav>
+<nav>
+    <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+        Thanh Tuan <span>Ton That</span>
+    </div>
     
+    <div class="nav-container">
+        <div class="links">
+            <a href="#" onclick="showPage('home'); return false;">Home</a>
+            <a href="#" onclick="showPage('introduction'); return false;">Introduction</a>
+            <a href="#" onclick="showPage('skills'); return false;">Skills</a>
+            <a href="#" onclick="showPage('projects'); return false;">Projects</a>
+            <a href="#" onclick="showPage('achievements'); return false;">Achievements</a>
+        </div>
+    </div>
 
-
-        <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-            Thanh Tuan <span>Ton That</span>
+    <i class="fa-solid fa-bars hamburg" onclick="toggleMenu()"></i>
+    
+    <div class="dropdown" id="mobileMenu">
+        <i class="fa-solid fa-xmark cancel" onclick="toggleMenu()"></i>
+        <div class="links">
+            <a href="#" onclick="navigateMobile('home')">Home</a>
+            <a href="#" onclick="navigateMobile('introduction')">Introduction</a>
+            <a href="#" onclick="navigateMobile('skills')">Skills</a>
+            <a href="#" onclick="navigateMobile('projects')">Projects</a>
+            <a href="#" onclick="navigateMobile('achievements')">Achievements</a>
         </div>
-        <div class="nav-container">
-            <div class="links">
-<a href="#" onclick="showPage('home'); return false;">Home</a>
-<a href="#" onclick="showPage('introduction'); return false;">Introduction</a>
-<a href="#" onclick="showPage('skills'); return false;">Skills</a>
-<a href="#" onclick="showPage('projects'); return false;">Projects</a>
-<a href="#" onclick="showPage('achievements'); return false;">Achievements</a>
-</div>
-        </div>
-        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-        <div class="dropdown">
-<div class="links">
-    <button onclick="showPage('home')">Home</button>
-    <button onclick="showPage('introduction')">Introduction</button>
-    <button onclick="showPage('skills')">Skills</button>
-    <button onclick="showPage('projects')">Projects</button>
-    <button onclick="showPage('achievements')">Achievements</button>
-</div> 
-        </div>
-    </nav>
+    </div>
+</nav>
     <div class="content-pages">
 
 <section id="home" class="page active">
         <div class="main-container">
             <div class="content">
                 <h1 data-aos="fade-right" data-aos-duration="1500" data-aos-delay="600">Hey I'm <span>Thanh Tuan</span></h1>
-                <div data-aos="fade-left" data-aos-duration="1500" data-aos-delay="800" class="typewriter">I'm a <span class="typewriter-text"></span><label for="">|</label></div>
+<h2>I AM A <span class="typewriter-text"></span></h2>
                 <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1000">"All our dreams can come true, if we have the courage to pursue them"</p>
                <div class="social-links">
 
@@ -443,7 +444,7 @@ By reducing waiting time, minimizing human error, and streamlining the ticketing
 </section>
 
         <section id="achievements" class="page">
-
+<div class="achievements-grid">
                     <div class="page-card bio-card">
                     <h2>Achievements</h2>
                     <ul class="skill-list">
@@ -473,7 +474,7 @@ By reducing waiting time, minimizing human error, and streamlining the ticketing
                 </ul>
             </div>
 
-
+</div>
         </section>
 
 
