@@ -1,12 +1,3 @@
-function hamburg() {
-    const dropdown = document.querySelector(".dropdown");
-    dropdown.classList.toggle("open");
-}
-
-function cancel(){
-    const dropdown = document.querySelector(".dropdown");
-    dropdown.style.display = "none";
-}
 
 
 const texts = [
@@ -196,13 +187,34 @@ function navigateMobile(page) {
     showPage(page);
     closeMenu();
 }
-function closeMenu() {
-    document.querySelector(".dropdown").classList.remove("active");
+function closeMenu(){
+    dropdownMenu.classList.remove("active");
 }
 
-const hamburg = document.querySelector('.hamburg');
-const cancel = document.querySelector('.cancel');
-const dropdown = document.querySelector('.dropdown');
+const menuBtn = document.querySelector('.hamburg');
+const cancelBtn = document.querySelector('.cancel');
+const dropdownMenu = document.querySelector('.dropdown');
+
+menuBtn.addEventListener('click', () => {
+    dropdownMenu.classList.add('active');
+    menuBtn.style.display = 'none';
+    cancelBtn.style.display = 'block';
+});
+
+cancelBtn.addEventListener('click', () => {
+    dropdownMenu.classList.remove('active');
+    cancelBtn.style.display = 'none';
+    menuBtn.style.display = 'block';
+});
+
+// Auto close when link tapped (important for phone)
+document.querySelectorAll('.dropdown .links a').forEach(link => {
+    link.addEventListener('click', () => {
+        dropdownMenu.classList.remove('active');
+        cancelBtn.style.display = 'none';
+        menuBtn.style.display = 'block';
+    });
+});
 
 hamburg.addEventListener('click', () => {
     dropdown.classList.add('open');
