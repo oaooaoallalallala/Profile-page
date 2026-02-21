@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>Thanh Tuan Ton That profile page</title>
+</head>
+<body>
+   <div class="intro-screen" id="introScreen">
+
+    <div class="tech-bg"></div>
+
+    <div class="intro-content">
+        <h1 class="intro-title">Welcome Everyone</h1>
+        <h2 class="intro-name">THANH TUAN TON THAT</h2>
+        <p class="intro-sub">Loading to page.......</p>
+    </div>
+
+</div>
+
+<div class="main-site" id="mainSite">
+<div class="tech-waves"></div>
+<div class="scan-lines"></div>
+<div class="light-sweep"></div>
+<div class="meteor-field">
+    <span class="meteor"></span>
+    <span class="meteor"></span>
+    <span class="meteor"></span>
+    <span class="meteor"></span>
+    <span class="meteor"></span>
+    <span class="meteor"></span>
+    <span class="meteor"></span>
+</div>
+
+    <nav>
+    
+
+
+        <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+            Thanh Tuan <span>Ton That</span>
+        </div>
+        <div class="nav-container">
+            <div class="links">
+                <a onclick="showPage('home')" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
+                <a onclick="showPage('introduction')" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">Introduction</a>
+                <a onclick="showPage('skills')" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">Skills</a>
+                <a onclick="showPage('projects')" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">Projects</a>
+                <a onclick="showPage('achievements')" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">Achievements</a>
+</div>
+        </div>
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        <div class="dropdown">
+            <div class="links">
+                <a onclick="showPage('home')">Home</a>
+                <a onclick="showPage('introduction')">Introduction</a>
+                <a onclick="showPage('skills')">Skills</a>
+                <a onclick="showPage('projects')">Projects</a>
+                <a onclick="showPage('achievements')">Achievements</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>    
+        </div>
+    </nav>
+    <div class="content-pages">
+
+<section id="home" class="page active">
+        <div class="main-container">
+            <div class="content">
+                <h1 data-aos="fade-right" data-aos-duration="1500" data-aos-delay="600">Hey I'm <span>Thanh Tuan</span></h1>
+                <div data-aos="fade-left" data-aos-duration="1500" data-aos-delay="800" class="typewriter">I'm a <span class="typewriter-text"></span><label for="">|</label></div>
+                <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1000">"All our dreams can come true, if we have the courage to pursue them"</p>
+               <div class="social-links">
+
+                  <a href="https://www.linkedin.com/in/oa-pro-842468359" target="_blank">
+                      <i class="fa-brands fa-linkedin" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1200"></i>
+                  </a>
+
+                  <a href="https://github.com/oaooaoallalallala" target="_blank">
+                      <i class="fa-brands fa-github" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300"></i>
+                  </a>
+
+                  <a href="https://www.facebook.com/tuan.tonthatthanh.9" target="_blank">
+                      <i class="fa-brands fa-facebook" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400"></i>
+                  </a>
+
+                  <a href="https://www.instagram.com/oaooaoallalallala/" target="_blank">
+                      <i class="fa-brands fa-instagram" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"></i>
+                  </a>
+
+              </div>
+                <div class="cv-options" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1700">
+                    <button onclick="openCV()">View My CV</button>
+                </div>
+                <div class="cv-modal" id="cvModal">
+
+    <div class="cv-box">
+
+        <span class="close-btn" onclick="closeCV()">✖</span>
+
+        <iframe src="cv/Thanh_Tuan_CV.pdf"></iframe>
+
+        <a href="cv/Thanh_Tuan_CV.pdf" download class="download-btn">
+            Download CV
+        </a>
+
+    </div>
+</div>
+            </div>
+            <div class="image" data-aos="zoom-in" data-aos-duration="2000">
+                <img src="ugly.jpg" alt="">
+            </div>
+        </div>
+</section>
+
+<section id="introduction" class="page">
+
+    <div class="intro-wrapper">
+
+        <div class="page-card intro-card">
+            <h2>Introduction</h2>
+            <p>
+                I am currently a student at Phu Nhuan High School with a strong passion for Artificial Intelligence research.<br>
+                I am deeply interested in exploring how AI can be applied to solve real-world problems and improve everyday life.<br>
+
+                I am eager to contribute to meaningful projects where I can collaborate with diverse peers, learn from experienced mentors,
+                and apply my academic knowledge in practical contexts.<br>
+
+                My long-term goal is to build valuable professional relationships while developing solutions that contribute positively to society.
+            </p>
+        </div>
+
+        <div class="page-card bio-card">
+            <h2>Bio</h2>
+            <ul class="skill-list">
+                <li>2009 - Born in Ho Chi Minh City</li>
+                <li>2024 - Studying at Phu Nhuan High School</li>
+                <li>2025 - AI Research Projects</li>
+                <li>2025 - President of Phu Nhuan Information Technology Group</li>
+                <li>2025 - Leader of Ho Chi Minh University of Technology Group - Viet Nam National University</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="skills" class="page">
+    <div class="page-card">
+        <h2>Skills</h2>
+        <ul class="skill-list">
+            <li>Artificial Intelligence</li>
+            <li>Computer Vision</li>
+            <li>Robotics</li>
+            <li>Web Development</li>
+            <li>UI / UX Design</li>
+        </ul>
+    </div>
+</section>
+
+<section id="projects" class="page">
+
+
+    <div class="page-card">
+        <h2>Projects</h2>
+
+        <div class="project-grid">
+            <div class="project-card" onclick="openProject('project1')">
+              An Intelligent Assistive and Monitoring System for Elderly and Visually Impaired Users
+              <p class="project-views">👁 <span id="views-project1">0</span> views</p>
+            </div>
+
+            <div class="project-card" onclick="openProject('project2')">
+              PNIT X-CLIP A SYSTEM FOR VIDEO RETRIEVAL FROM LARGE MULTIMEDIA ARCHIVES
+              <p class="project-views">👁 <span id="views-project2">0</span> views</p>
+            </div>
+            
+
+            <div class="project-card" onclick="openProject('project3')">
+              Applying Optical Character Recognition with Multimodal Media For Receipt Recognition
+              <p class="project-views">👁 <span id="views-project3">0</span> views</p>
+            </div>
+            <div class="project-card" onclick="openProject('project4')">
+              An Intelligent STEM-Oriented System for School Health Applications Based on Natural Compound Extraction and AI-Driven Object Detection
+              <p class="project-views">👁 <span id="views-project4">0</span> views</p>
+            </div>
+            <div class="project-card" onclick="openProject('project5')">
+              Automatic Parking Ticket Dispenser
+              <p class="project-views">👁 <span id="views-project5">0</span> views</p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="project-modal" id="project1">
+        <div class="project-box research-style">
+            <span onclick="closeProject('project1')" class="close-btn">✖</span>
+            <h2 class="paper-title">An Intelligent Assistive and Monitoring System for Elderly and Visually Impaired Users</h2>
+            <div class="paper-authors">
+    <p><b>Authors:</b> Thanh Tuan Ton That</p>
+    <p><b>Co-Authors:</b> Khang Huy Ngo, Nam Hien Cao Nguyen</p>
+</div>
+            <div class="paper-info">
+                <p><b>Year:</b> 2026</p>
+                <p><b>Category:</b> An Intelligent Assistive and Monitoring System for Elderly and Visually Impaired Users </p>
+            </div>
+            <hr>
+            <div class="paper-links">
+                <a onclick="showPDF('pdf1')">📄 View Paper</a>
+                <a href="https://drive.google.com/file/d/1vPm1fsGV5My2CXImgpa-wNHwXaCWm91H/view?usp=sharing" target="_blank">📥 Download PDF</a>
+
+            </div>
+            <div class="pdf-viewer" id="pdf1">
+
+    <span class="close-pdf" onclick="hidePDF('pdf1')">✖</span>
+
+    <iframe 
+        src="https://drive.google.com/file/d/1vPm1fsGV5My2CXImgpa-wNHwXaCWm91H/preview"
+        width="100%" 
+        height="500px"
+        allow="autoplay">
+    </iframe>
+
+</div>
+            <div class="paper-abstract">
+                <h3>Abstract</h3>
+                <p>
+                Visual impairment and age-related decline significantly affect independent mobility and safety in daily life. This paper presents a smart monitoring and assistance system aimed at supporting visually impaired individuals and elderly people through the integrating of artificial intelligence, computer vision, and sensor-based technologies. Getting inspired by the working mechanism of the human eye, the proposed system employs the YOLO11 deep learning model for real-time object detection and classification, combined with the Depth Anything v2 model for monocular depth estimation to calculate the distance between users and surrounding objects.</p>
+<p><b>
+The system is implemented using an embedded camera and IoT-based sensors, including ultrasonic distance sensors, GNSS positioning, heart rate monitoring (MAX30102), and fall detection modules, enabling comprehensive environmental perception and user health monitoring. Experimental evaluations were conducted in both bright and low-light environments using a self-collected dataset. The results depict that the proposed system achieves an overall the accurate of detection -- approximately 95 percent, with stable performance across varying lighting conditions. </b></p>
+<p><b>
+The findings confirm the feasibility and effectiveness of integrating deep learning models with embedded hardware to provide real-time assistance. This system has strong potential for development into a wearable smart device capable of enhancing mobility, reducing collision risks, and improving the independence and quality of life for visually impaired and elderly users. Moreover, the proposed approach contributes to the advancement of human-centered intelligent assistive technologies with meaningful social impact. </b>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="project-modal" id="project2">
+    <div class="project-box research-style">
+
+        <span onclick="closeProject('project2')" class="close-btn">✖</span>
+
+        <h2 class="paper-title">
+            PNIT X-CLIP A SYSTEM FOR VIDEO RETRIEVAL FROM LARGE MULTIMEDIA ARCHIVES
+        </h2>
+
+        <div class="paper-authors">
+            <p><b>Authors:</b> Thanh Tuan Ton That</p>
+            <p><b>Co-Authors:</b> Nhu Hai Do, Viet Thang Nguyen, Huynh Duc To, Dang Dang Nguyen</p>
+        </div>
+
+        <div class="paper-info">
+            <p><b>Year:</b> 2026</p>
+            <p><b>Category:</b> PNIT X-CLIP A SYSTEM FOR VIDEO RETRIEVAL FROM LARGE MULTIMEDIA ARCHIVES</p>
+        </div>
+
+        <hr>
+
+        <div class="paper-links">
+            <a onclick="showPDF('pdf2')">📄 View Paper</a>
+            <a href="https://drive.google.com/file/d/1vPm1fsGV5My2CXImgpa-wNHwXaCWm91H/view?usp=sharing" target="_blank">📥 Download PDF</a>
+        </div>
+
+        <div class="pdf-viewer" id="pdf2">
+            <span class="close-pdf" onclick="hidePDF('pdf2')">✖</span>
+
+            <iframe 
+                src="https://drive.google.com/file/d/1vPm1fsGV5My2CXImgpa-wNHwXaCWm91H/preview"
+                width="100%" 
+                height="500px"
+                allow="autoplay">
+            </iframe>
+        </div>
+
+        <!-- ✅ ABSTRACT MUST BE INSIDE -->
+        <div class="paper-abstract">
+            <h3>Abstract</h3>
+            <p>
+                 Ho Chi Minh City AI Challenge 2025, now in its sixth edition, 
+focused on advancing event retrieval techniques from large video collections, driving research and innovation in video analysis. The challenge 
+featured a dataset of 1,471 videos spanning 328 h alongside diverse query 
+formats to evaluate system performance in realistic scenarios. Participant 
+teams competed in multiple rounds, addressing complex queries involving 
+temporal and semantic event understanding. Leveraging advanced deep 
+learning models, temporal segmentation, and multimodal fusion techniques, participants showcased innovative approaches across textual and 
+visual Known-Item Search and Question Answering tasks. Visual KIS 
+recorded the highest performance, highlighting the advantages of rich 
+visual context over text-based queries. This paper provides an overview 
+of the challenge organization, dataset, methodologies, evaluation metrics, 
+and insights into trends and solutions observed during the competition. 
+            </p>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+    <div class="project-modal" id="project3">
+        <div class="project-box research-style">
+            <span onclick="closeProject('project3')" class="close-btn">✖</span>
+            <h2 class="paper-title">Applying Optical Character Recognition with Multimodal Media for Receipt Recognition</h2>
+            <div class="paper-authors">
+    <p><b>Authors:</b> Thanh Tuan Ton That</p>
+    <p><b>Co-Authors:</b> Quoc-Hieu Nguyen, Trung-Kien Doan, Gia-Phuc Le Nguyen, Quoc-Dai-Son Phan, Thinh-Van Vo</p>
+</div>
+            <div class="paper-info">
+                <p><b>Year:</b> 2026</p>
+                <p><b>Category:</b> Applying Optical Character Recognition with Multimodal Media for Receipt Recognition </p>
+            </div>
+            <hr>
+            <div class="paper-links">
+                <a onclick="showPDF('pdf3')">📄 View Paper</a>
+                <a href="https://drive.google.com/file/d/1hin8fNSAPseilgi32O5I74N_x13UWTPv/view?usp=sharing" target="_blank">📥 Download PDF</a>
+
+            </div>
+            <div class="pdf-viewer" id="pdf3">
+
+    <span class="close-pdf" onclick="hidePDF('pdf3' )">✖</span>
+
+    <iframe 
+        src="https://drive.google.com/file/d/1hin8fNSAPseilgi32O5I74N_x13UWTPv/preview"
+        width="100%" 
+        height="500px"
+        allow="autoplay">
+    </iframe>
+
+</div>
+            <div class="paper-abstract">
+                <h3>Abstract</h3>
+                <p>
+                This paper presents an end-to-end AI-based bill and receipt recognition system that integrates object detection, optical character recognition, and an interactive graphical user interface for efficient analysis and comparison. The proposed pipeline employs YOLOv8 to accurately detect and localize bill regions from input images, followed by a high-accuracy OCR model as the primary recognition engine. PaddleOCR is incorporated as a baseline to enable cross-validation and performance comparison between OCR approaches.</p>
+<p><b>
+To enhance usability and transparency, the system is deployed through a modern PySide6-based graphical interface featuring real-time visualization of detection results, detailed tabular OCR outputs, and confidence-based analytics. The GUI supports side-by-side comparison of OCR models, color-coded confidence indicators, and structured export of recognition results in JSON format, including bounding boxes and metadata. Experimental evaluation demonstrates that the primary OCR model achieves higher recognition confidence with fewer but more reliable text predictions, while PaddleOCR provides broader text coverage with slightly lower confidence. The proposed system effectively balances accuracy, usability, and extensibility, making it suitable for practical bill digitization, analysis, and future batch-processing applications. </b></p>
+
+            </div>
+        </div>
+    </div>
+    
+    
+<div class="project-modal" id="project4">
+    <div class="project-box research-style">
+
+        <span onclick="closeProject('project4')" class="close-btn">✖</span>
+
+        <h2 class="paper-title">
+            An Intelligent STEM-Oriented System for School Health Applications Based on Natural Compound Extraction and AI-Driven Object Detection
+        </h2>
+
+        <div class="paper-authors">
+            <p><b>Authors:</b> Thanh Tuan Ton That</p>
+        </div>
+
+        <div class="paper-info">
+            <p><b>Year:</b> 2026</p>
+            <p><b>Category:</b> An Intelligent STEM-Oriented System for School Health Applications Based on Natural Compound Extraction and AI-Driven Object Detection</p>
+        </div>
+
+        <hr>
+
+        <div class="paper-links">
+            <a onclick="showPDF('pdf4')">📄 View Paper</a>
+            <a href="https://drive.google.com/file/d/1Ve2OnZfveb5R4r1c3J6esWf85fUHoQ48/view?usp=sharing" target="_blank">📥 Download PDF</a>
+        </div>
+
+        <div class="pdf-viewer" id="pdf4">
+            <span class="close-pdf" onclick="hidePDF('pdf4')">✖</span>
+
+            <iframe 
+                src="https://drive.google.com/file/d/1Ve2OnZfveb5R4r1c3J6esWf85fUHoQ48/preview"
+                width="100%" 
+                height="500px"
+                allow="autoplay">
+            </iframe>
+        </div>
+
+        <!-- ✅ ABSTRACT MUST BE INSIDE -->
+        <div class="paper-abstract">
+            <h3>Abstract</h3>
+            <p><b>
+            This study presents the development of an intelligent STEM-oriented system designed to support school health initiatives through the identification and analysis of natural compound extracts. The system integrates Artificial Intelligence (AI) and computer vision technologies to automatically recognize solid and liquid substances derived from natural materials such as ginger, citrus fruits, and plant-based oils. Using an object detection model deployed via ONNX Runtime Web, the system processes user-uploaded images and classifies extracted compounds in real time.</b>
+            </p>
+<p><b>The proposed solution aims to enhance STEM education by connecting scientific experimentation with practical health-related applications. By enabling students to identify bioactive substances from natural sources, the system promotes awareness of sustainable materials and their benefits in immunity support, antimicrobial activity, and overall wellness. In addition, the platform provides descriptive insights into detected compounds, including their chemical characteristics, biological functions, and potential applications in food, cosmetics, and traditional medicine.</b></p>
+<p><b>Experimental implementation demonstrates that the system operates efficiently with high recognition reliability and fast processing time, making it suitable for classroom environments and interactive learning scenarios. Beyond education, the model shows potential for broader applications in smart laboratories and green technology initiatives.</b></p>
+<p>This research contributes to the integration of AI-driven visual recognition into STEM-based health education, fostering innovation, environmental awareness, and interdisciplinary learning among students.</p> 
+</div>
+
+    </div>
+</div>
+
+
+
+    <div class="project-modal" id="project5">
+        <div class="project-box research-style">
+            <span onclick="closeProject('project5')" class="close-btn">✖</span>
+            <h2 class="paper-title">Automatic Parking Ticket Dispenser</h2>
+            <div class="paper-authors">
+    <p><b>Authors:</b> Thanh Tuan Ton That</p>
+    <p><b>Co-Authors:</b> Gia--Han Nguyen Ngoc, Tuong--Vy Vo Ngoc</p>
+</div>
+            <div class="paper-info">
+                <p><b>Year:</b> 2026</p>
+                <p><b>Category:</b> Automatic Parking Ticket Dispenser</p>
+            </div>
+            <hr>
+            <div class="paper-links">
+                <a onclick="showPDF('pdf5')">📄 View Paper</a>
+                <a href="https://drive.google.com/file/d/1yg6A1AqEYZ-RTWFitvIiEdiiAnNF_vdc/view?usp=sharing" target="_blank">📥 Download PDF</a>
+
+            </div>
+            <div class="pdf-viewer" id="pdf5">
+
+    <span class="close-pdf" onclick="hidePDF('pdf5')">✖</span>
+
+    <iframe 
+        src="https://drive.google.com/file/d/1yg6A1AqEYZ-RTWFitvIiEdiiAnNF_vdc/preview"
+        width="100%" 
+        height="500px"
+        allow="autoplay">
+    </iframe>
+
+</div>
+            <div class="paper-abstract">
+                <h3>Abstract</h3>
+                <p>
+                During peak hours, congestion frequently occurs at school parking entrances due to the large number of students arriving simultaneously to deposit their vehicles. Manual ticket distribution slows down the process, leading to crowding, disorder, and potential safety risks. To address this issue, this project proposes an automatic vehicle ticket dispensing machine designed to improve the efficiency of school parking management.</p>
+<p><b>
+The system operates by detecting the presence of a user through object detection sensors and automatically releasing a parking ticket using a servo-controlled mechanism. A microcontroller-based control system processes sensor input and executes the ticket dispensing action without human intervention. The model is designed to be simple, cost-effective, and practical for real-world school environments.</b></p>
+<p><b>
+By reducing waiting time, minimizing human error, and streamlining the ticketing process, the proposed system contributes to alleviating traffic congestion at school gates. This project also demonstrates the application of engineering and technological knowledge in solving practical problems within educational settings, promoting a more modern, efficient, and convenient parking management approach.</b>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
+
+        <section id="achievements" class="page">
+
+                    <div class="page-card bio-card">
+                    <h2>Achievements</h2>
+                    <ul class="skill-list">
+                        <li>Potential Award – Ho Chi Minh City Artificial Intelligence Challenge 2025</li>
+                        <li>Participated in the National Round Qualifier of the Science and Engineering Fair 202</li>
+                        <li>Second Prize – Ho Chi Minh City-Level Science and Engineering Fair 2025</li>
+                        <li>Potential Award - Iran Geometry Olympiad 2024</li>
+                        <li>Third Prize – Ho Chi Minh City Excellent Student Competition in Mathematics 2024</li>
+                        <li>Third Prize – Ho Chi Minh City Handheld Calculator Mathematics Competition 2024</li>
+                    </ul>
+                </div>
+
+
+            <div class="page-card">
+                <h2>Global Certifications</h2>
+                <ul class="skill-list">
+                    <li>Ielts Certification</li>
+                    <li>SAT Certification</li>
+                    <li>HO CHI MINH CITY Science and Engineering Fair Certification</li>
+                    <li>HCMC AI Challenge 2025 Certification for attending final round</li>
+                    <li>Certification from University of Information and Technology for attending AI course</li>
+                    <li>Certification from University of Technology for attending AI course</li>
+                    <li>Certification from University of Technology for helping research projects</li>
+                    <li>Legacy Responsive Web Design V8 Certification</li>
+                    <li>HCMC AI Challenge 2025 Certification for attending final round</li>
+                    <li>Scientific Computing with Python Certification</li>            
+                </ul>
+            </div>
+
+
+        </section>
+
+
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({offset:0});
+    </script>
+
+
+
+</div>
+</body>
+</html>
