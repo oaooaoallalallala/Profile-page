@@ -61,29 +61,33 @@ function closeCV(){
 
 
 
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
+    const intro = document.getElementById('introScreen');
+    const main = document.getElementById('mainSite');
 
+    // 1. Show intro for 2 seconds
     setTimeout(() => {
+        intro.style.opacity = '0';
+        
+        // 2. While intro fades, start fading in the main site
+        main.style.opacity = '1';
 
-        const intro = document.getElementById("introScreen");
-        const main = document.getElementById("mainSite");
-
-        // Start intro exit
-        intro.classList.add("intro-hide");
-
-        // Start main reveal slightly after
         setTimeout(() => {
-            main.classList.add("main-show");
-        }, 400);
-
-        // Remove intro completely
-        setTimeout(() => {
-            intro.style.display = "none";
-        }, 1400);
-
-    }, 1500);
-
+            intro.style.display = 'none'; // Fully remove from DOM
+            
+            // 3. START THE TYPEWRITER NOW
+            if (typeof typeWriter === "function") {
+                typeWriter();
+            }
+        }, 800); // Matches the 0.8s CSS transition
+    }, 2000);
 });
+
+// IMPORTANT: Remove the old "window.onload = typeWriter" line 
+// from the middle of your script.js file!
+
+// Remove this line from the bottom of your script.js:
+// window.onload = typeWriter;
 
 const glow = document.querySelector(".cursor-glow");
 
@@ -92,25 +96,11 @@ document.addEventListener("mousemove", e => {
     glow.style.top = e.clientY + "px";
 });
 
-function showPage(pageId){
-
-    // 🔹 Close mobile menu first
-    const dropdown = document.querySelector(".dropdown");
-    dropdown.style.display = "none";
-
-    // 🔹 Remove active from all pages
-    document.querySelectorAll(".page").forEach(p=>{
+function showPage(pageId) {
+    document.querySelectorAll(".page").forEach(p => {
         p.classList.remove("active");
     });
-
-    // 🔹 Show selected page
     document.getElementById(pageId).classList.add("active");
-
-    // 🔹 Scroll to top (important for phone)
-    window.scrollTo(0,0);
-
-    
-
 }
 
 
@@ -182,10 +172,19 @@ window.onload = function() {
     });
 
 };
+function toggleMenu() {
+    mobileMenu.classList.toggle("active");
+}
 
-function navigateMobile(page) {
-    showPage(page);
-    closeMenu();
+function navigateMobile(pageId) {
+    // 1. Hide the menu
+    mobileMenu.classList.remove("active");
+    
+    // 2. Show the page (using your existing function)
+    showPage(pageId);
+    
+    // 3. Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function closeMenu(){
     dropdownMenu.classList.remove("active");
@@ -236,3 +235,10 @@ document.querySelectorAll('.dropdown .links a').forEach(link => {
         hamburg.style.display = 'block';
     });
 });
+
+
+function toggleMenu() {
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.classList.toggle('active');
+}
+
