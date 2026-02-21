@@ -68,17 +68,19 @@ nav {
 
 .dropdown{
     position: fixed;
-    top: 0;
-    width: 100%;
-    max-height: 100vh;
-    overflow-y: auto;
+    top: 70px;
+    right: 15px;          /* 👈 anchor to right */
+    width: 220px;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 0 20px #b711e0;
 
-    transform: translateY(-500px);
-    backdrop-filter: blur(4px) brightness(40%);
-    box-shadow: 0 0 20px black;
-    transition: 0.3s linear;
+    transform: scale(0);
+    transform-origin: top right;   /* 👈 animate from corner */
 
-    z-index: 10000; /* 🔥 important */
+    transition: 0.25s ease;
+    z-index: 1500;
 }
 
 .dropdown .links a{
@@ -91,9 +93,9 @@ nav {
 }
 
 .dropdown .links a{
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s linear;
+    display: block;
+    padding: 12px 15px;
+    text-align: right;
 }
 
 .dropdown .links a:hover{
@@ -1240,16 +1242,18 @@ section{
 }
 
     
-.hamburg {
-    position: relative;
-    z-index: 1000;
+.hamburg{
+    z-index: 2001;
 }
 
 .dropdown {
-    transform: translateY(-100%);
     transition: transform 0.4s ease;
 }
 
 .dropdown.open {
     transform: translateY(0);
+}
+
+.dropdown.active{
+    transform: scale(1);
 }
