@@ -1257,3 +1257,463 @@ section{
 .dropdown.active{
     transform: scale(1);
 }
+
+/* Mobile Menu Styles */
+/* Optimized Compact Dropdown */
+.dropdown {
+    position: fixed;
+    top: 70px;         /* Positioned below the navbar */
+    right: 20px;       /* Spaced from the right edge */
+    width: 200px;      /* Fixed small width */
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(183, 17, 224, 0.5); /* Purple border to match your theme */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(183, 17, 224, 0.2);
+    z-index: 10001;
+    padding: 10px 0;
+
+    /* Animation: Scale and Fade from top-right */
+    display: none;     /* Hidden by default */
+    transform: scale(0.9);
+    opacity: 0;
+    transform-origin: top right;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Active state for the small menu */
+.dropdown.active {
+    display: block;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.dropdown .links {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown .links button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 1rem;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dropdown .links button:hover {
+    background: rgba(183, 17, 224, 0.2);
+    color: #b711e0;
+}
+
+/* Show the hamburger icon on phones */
+/* COMPACT MOBILE MENU UI */
+/* 1. Reset visibility for icons */
+.hamburg, .cancel {
+    display: none;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 2rem;
+    z-index: 10001; /* Above the dropdown */
+}
+
+/* 2. Compact Dropdown UI */
+.dropdown {
+    position: fixed;
+    top: 70px;         /* Just below nav height */
+    right: 20px;       /* Floating away from edge */
+    width: 200px;      /* Small size */
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(183, 17, 224, 0.5);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    padding: 10px 0;
+    
+    /* Animation: Small pop-in from top-right */
+    display: none;     
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+    transform-origin: top right;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Active state triggered by JS */
+.dropdown.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.dropdown .links {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown .links a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    text-align: left;
+    transition: 0.2s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dropdown .links a:last-child {
+    border-bottom: none;
+}
+
+.dropdown .links a:hover {
+    background: rgba(183, 17, 224, 0.2);
+    color: #b711e0;
+    padding-left: 25px; /* Subtle slide effect */
+}
+
+/* 3. Mobile Logic (Max-width 884px) */
+@media (max-width: 884px) {
+    .nav-container .links {
+        display: none; /* Hide desktop links */
+    }
+
+    .hamburg {
+        display: block; /* Show hamburger */
+    }
+
+    /* Fix image sizing for phones */
+    .main-container .image {
+        width: 250px;
+        height: 250px;
+        margin: 0 auto;
+    }
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px; /* Give it a fixed height */
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.8); /* Optional: semi-transparent background */
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    max-width: 1200px; /* Keeps content from stretching too wide */
+    margin: 0 auto;    /* Centers the container */
+    height: 100%;
+    display: flex;
+    justify-content: center; /* Centers the desktop links */
+    align-items: center;
+    position: relative;
+}
+
+/* Fix Dropdown to stay centered on small screens */
+
+
+@media (max-width: 884px) {
+    .dropdown {
+        display: none; 
+        position: fixed;
+        top: 70px;         
+        left: 50%;         
+        transform: translateX(-50%) translateY(-20px); 
+        
+        /* THE FIX: Fits exactly to the text width */
+        width: max-content; 
+        min-width: 180px;   /* Ensures a good touch target */
+        padding: 10px 10px; /* Space between text and border */
+        
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(15px);
+        border: 1px solid #b711e0;
+        border-radius: 15px;
+        box-shadow: 0 0 25px rgba(183, 17, 224, 0.3);
+        z-index: 10000;
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .dropdown.active {
+        display: block;
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown .links {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .dropdown .links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding: 12px 25px; /* Side padding creates the width */
+        width: 100%;
+        text-align: center;
+        white-space: nowrap; /* CRITICAL: Prevents text from wrapping */
+        transition: 0.2s;
+    }
+
+    .dropdown .links a:hover {
+        background: rgba(183, 17, 224, 0.2);
+        color: #b711e0;
+        border-radius: 10px;
+    }
+}
+
+.page-card {
+    width: 90%;
+    max-width: 900px;
+    padding: 30px 20px; /* Reduced padding for mobile */
+    margin: 20px auto;
+    overflow-wrap: break-word; /* Prevents long words from breaking layout */
+}
+
+.page-card h2 {
+    /* Fluid font size: Minimum 24px, scales with screen, Maximum 40px */
+    font-size: clamp(1.5rem, 5vw, 2.5rem); 
+    text-align: center;
+}
+
+.page-card p {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    line-height: 1.6;
+}
+
+@media (max-width: 884px) {
+    .intro-wrapper {
+        flex-direction: column;
+        align-items: center; /* Center cards on mobile */
+        width: 95%;
+        gap: 20px;
+    }
+
+    .intro-card, .bio-card {
+        width: 100%; /* Ensure they take full width of the container */
+        flex: none;  /* Remove the flex: 2 and flex: 1 on mobile */
+    }
+}
+
+.skill-list li {
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 0.95rem;
+    word-break: break-word; /* Forces long text to wrap to the next line */
+    background: rgba(183, 17, 224, 0.1); /* Matches your purple theme */
+    border-radius: 8px;
+    border: 1px solid rgba(183, 17, 224, 0.2);
+    text-align: left;
+}
+
+body {
+    overflow-x: hidden; /* Stops the screen from shaking left to right */
+    width: 100%;
+}
+
+.achievements-grid {
+    display: grid;
+    /* This tells the browser: make columns at least 300px wide. 
+       If two can fit, show two. If not, show one. */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Ensure the cards inside don't have forced widths that break the grid */
+.achievements-grid .page-card {
+    width: 100%;
+    margin: 0; /* Let the grid gap handle spacing */
+    height: 100%; /* Makes both cards the same height */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .achievements-grid {
+        grid-template-columns: 1fr; /* Force 1 column on phones */
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .page-card h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Container for the projects */
+.projects-grid {
+    display: grid !important;
+    /* This creates as many columns as fit, at least 300px wide each */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    justify-content: center;
+}
+
+/* Individual project cards */
+.project-card {
+    width: 100%; /* Take full width of the grid cell */
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Hover effects */
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+    border-color: #00f7ff;
+}
+
+/* Responsive adjustment for small phones */
+@media (max-width: 500px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Force exactly 1 column */
+        gap: 20px;
+        width: 95%;
+    }
+    
+    .project-card {
+        padding: 20px;
+    }
+}
+
+.project-card h3 {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin-bottom: 10px;
+    color: #00f7ff;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.8;
+    /* Prevents long descriptions from overflowing */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* The container for the PDF inside the project modal */
+.pdf-viewer {
+    width: 100%;
+    height: 70vh; /* Uses 70% of the phone screen height */
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+
+/* Ensure the iframe fills the container but stays within screen bounds */
+.pdf-viewer iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+}
+
+/* Make the Project Modal Box more responsive */
+.project-box {
+    width: 95% !important; /* Full width on mobile */
+    max-width: 800px;
+    max-height: 90vh; /* Prevents box from being taller than the screen */
+    overflow-y: auto; /* Adds a scrollbar if the text is too long */
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+    .paper-title {
+        font-size: 1.2rem !important; /* Shrink big titles on phones */
+    }
+    
+    .project-box {
+        padding: 15px;
+        margin-top: 40px; /* Space for the close button */
+    }
+}
+
+/* Ensure the intro screen covers the full viewport without scrolling */
+.intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100000;
+    overflow: hidden; /* Prevents scrollbars during intro */
+    background: black;
+}
+
+.intro-content {
+    text-align: center;
+    width: 90%; /* Prevents text from hitting screen edges */
+    padding: 20px;
+}
+
+.intro-title {
+    color: white;
+    /* Smart scaling: Min 1.5rem, Scales with width, Max 3rem */
+    font-size: clamp(1.5rem, 8vw, 3rem); 
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+}
+
+.intro-name {
+    color: #b711e0;
+    font-size: clamp(1.2rem, 6vw, 2.5rem);
+    text-shadow: 0 0 15px #b711e0;
+    margin-bottom: 20px;
+    word-wrap: break-word; /* Important for long names on narrow phones */
+}
+
+.intro-sub {
+    color: #555;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.typewriter-text {
+    color: #b711e0;
+    font-weight: bold;
+    border-right: 3px solid #b711e0; /* The blinking cursor */
+    padding-right: 5px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+@media (max-width: 884px) {
+    .typewriter-text {
+        font-size: 1.2rem;
+        white-space: normal; /* Allows wrapping on small phones */
+    }
+}
+
