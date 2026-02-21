@@ -67,15 +67,18 @@ nav {
 }
 
 .dropdown{
-    z-index: 100;
-    position: absolute;
+    position: fixed;
     top: 0;
-    transform: translateY(-500px);
     width: 100%;
-    height: auto;
+    max-height: 100vh;
+    overflow-y: auto;
+
+    transform: translateY(-500px);
     backdrop-filter: blur(4px) brightness(40%);
     box-shadow: 0 0 20px black;
     transition: 0.3s linear;
+
+    z-index: 10000; /* 🔥 important */
 }
 
 .dropdown .links a{
@@ -1239,5 +1242,9 @@ section{
     
 .hamburg {
     position: relative;
-    z-index: 2000;
+    z-index: 1000;
+}
+
+.dropdown.active {
+    transform: translateY(0);
 }
