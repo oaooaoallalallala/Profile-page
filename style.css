@@ -331,12 +331,15 @@ background-layer {
     padding: 15px;
     display: flex;
     flex-direction: column;
+
 }
 .cv-box iframe{
     width: 100%;
     height: 100%;
     flex-grow: 1;
     border: none;
+-webkit-overflow-scrolling: touch; 
+    overflow-y: scroll;
 }
 
 .download-btn{
@@ -486,7 +489,7 @@ background-layer {
 .main-site {
     opacity: 0;
     transform: scale(0.9) rotateX(-10deg);
-    filter: blur(20px);
+
     transition: all 1.4s ease;
 }
 
@@ -1715,5 +1718,39 @@ body {
         font-size: 1.2rem;
         white-space: normal; /* Allows wrapping on small phones */
     }
+}
+
+/* 1. Simplify the Intro Screen to remove the "Blur Lag" */
+.intro-screen {
+    position: fixed;
+    inset: 0;
+    background: #000000; /* Use solid black, no transparency */
+    z-index: 100000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    backdrop-filter: none !important; /* REMOVE BLUR HERE */
+    -webkit-backdrop-filter: none !important;
+    
+    /* Force Hardware Acceleration for sharpness */
+    transform: translateZ(0);
+    will-change: opacity;
+}
+
+/* 2. Fix the Main Site sharpness */
+.main-site {
+    display: none; /* JS will change this to 'block' */
+    opacity: 0;
+    width: 100%;
+    transform: translateZ(0); /* Keeps text sharp during fade-in */
+    backface-visibility: hidden;
+}
+
+/* 3. Reduce Blur Intensity on heavy elements */
+.nav-container, .dropdown, .cv-box {
+    /* Reducing blur from 15px/10px to 5px makes it much easier for laptops to render */
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
 }
 
