@@ -117,6 +117,9 @@ function showPage(pageId){
 
     // 🔹 Scroll to top (important for phone)
     window.scrollTo(0,0);
+
+    
+
 }
 
 
