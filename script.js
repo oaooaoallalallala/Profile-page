@@ -249,14 +249,3 @@ function toggleMenu() {
     dropdown.classList.toggle('active');
 }
 
-function openProject(id) {
-    document.getElementById(id).style.display = "flex";
-    // This stops the background page from moving while the modal is open
-    document.body.style.overflow = 'hidden'; 
-}
-
-function closeProject(id) {
-    document.getElementById(id).style.display = "none";
-    // This allows the page to scroll again once the modal is closed
-    document.body.style.overflow = 'auto'; 
-}
