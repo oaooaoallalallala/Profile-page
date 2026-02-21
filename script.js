@@ -65,24 +65,31 @@ window.addEventListener('load', () => {
     const intro = document.getElementById('introScreen');
     const main = document.getElementById('mainSite');
 
-    // 1. Show intro for 2 seconds
+    // Make sure main site is ready but hidden
+    main.style.display = 'block';
+    main.style.opacity = '0';
+
     setTimeout(() => {
+        // Fade out intro
+        intro.style.transition = 'opacity 0.6s ease';
         intro.style.opacity = '0';
         
-        // 2. While intro fades, start fading in the main site
+        // Fade in main site
+        main.style.transition = 'opacity 0.8s ease';
         main.style.opacity = '1';
 
         setTimeout(() => {
-            intro.style.display = 'none'; // Fully remove from DOM
+            intro.remove(); // DELETE the intro screen entirely to free up memory
             
-            // 3. START THE TYPEWRITER NOW
+            // Start the typewriter ONLY after intro is gone
             if (typeof typeWriter === "function") {
                 typeWriter();
             }
-        }, 800); // Matches the 0.8s CSS transition
+        }, 600);
     }, 2000);
 });
 
+// IMPORTANT: Delete the old "window.onload = typeWriter;" line at the bottom!
 // IMPORTANT: Remove the old "window.onload = typeWriter" line 
 // from the middle of your script.js file!
 
