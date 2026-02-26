@@ -1754,3 +1754,21 @@ body {
     -webkit-backdrop-filter: blur(5px) !important;
 }
 
+@media (max-width: 768px) {
+
+    .pdf-viewer {
+        height: 60vh;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .project-box {
+        width: 100%;
+        max-width: 100%;
+        margin: auto;
+    }
+
+}
+
